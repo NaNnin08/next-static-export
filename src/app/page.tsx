@@ -1,15 +1,37 @@
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Test",
-  description: "Test static export nextjs",
-  openGraph: {
+// export const metadata: Metadata = {
+//   title: "Test",
+//   description: "Test static export nextjs",
+//   openGraph: {
+//     title: "Test",
+//     description: "Test static export nextjs",
+//     images:
+//       "https://res.cloudinary.com/dlce2r3mg/image/upload/v1679982526/cld-sample-3.jpg",
+//   },
+// };
+
+type Props = {
+  params: { image: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const image = params.image;
+
+  return {
     title: "Test",
     description: "Test static export nextjs",
-    images:
-      "https://res.cloudinary.com/dlce2r3mg/image/upload/v1679982526/cld-sample-3.jpg",
-  },
-};
+    openGraph: {
+      title: "Test",
+      description: "Test static export nextjs",
+      images: `https://res.cloudinary.com/dlce2r3mg/image/upload/v1679982526/${
+        image || "cld-sample-3"
+      }.jpg`,
+    },
+  };
+}
 
 export default function Home() {
   return (
