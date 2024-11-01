@@ -20,10 +20,10 @@ const MainComponent = () => {
     );
 
   const loginInstagram = () => {
-    const width = 600;
-    const height = 700;
-    const left = (window.innerWidth - width) / 2;
-    const top = (window.innerHeight - height) / 2;
+    // const width = 600;
+    // const height = 700;
+    // const left = (window.innerWidth - width) / 2;
+    // const top = (window.innerHeight - height) / 2;
 
     if (isMobile()) {
       //   const url = document.createElement("a");
@@ -36,24 +36,23 @@ const MainComponent = () => {
       //   document.body.removeChild(url);
       return;
     } else {
-      window.open(
-        `https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}`,
-        "Instagram Login",
-        `width=${width},height=${height},top=${top},left=${left}`
-      );
+      //   window.open(
+      //     `https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}`,
+      //     "Instagram Login",
+      //     `width=${width},height=${height},top=${top},left=${left}`
+      //   );
     }
   };
 
   const ButtonProvider = ({ children }: { children: React.ReactNode }) => {
-    if (isMobile()) {
+    return (
       <a
         href={`https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}`}
         target="_blank"
       >
         {children}
-      </a>;
-    }
-    return <>{children}</>;
+      </a>
+    );
   };
 
   return (
