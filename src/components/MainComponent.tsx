@@ -24,8 +24,8 @@ const MainComponent = () => {
 
     if (isMobile()) {
       window.open(
-        `https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}`,
-        "Instagram Login",
+        `https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}#`,
+        "_blank",
         `width=${width},height=${height},top=${top},left=${left}`
       );
     } else {
