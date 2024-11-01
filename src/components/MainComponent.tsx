@@ -2,9 +2,11 @@
 import React from "react";
 
 const MainComponent = () => {
+  if (typeof window === "undefined") return;
+
   const clientId = "853949483610671";
   const redirectUri = encodeURIComponent(
-    `${window.location.origin}/callback/instagram` || ""
+    `${window?.location?.origin ?? ""}/callback/instagram` || ""
   );
   const scope = encodeURIComponent("instagram_business_basic");
   // const state = encodeURIComponent('secureRandomState');
