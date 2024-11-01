@@ -17,13 +17,27 @@ const MainComponent = () => {
     const left = (window.innerWidth - width) / 2;
     const top = (window.innerHeight - height) / 2;
 
-    window.open(
-      `${window.location.origin}/redirect?link=${encodeURIComponent(
-        `https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}`
-      )}`,
-      "Instagram Login",
-      `width=${width},height=${height},top=${top},left=${left}`
-    );
+    const isMobile = () =>
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+
+    if (isMobile()) {
+      const url = document.createElement("a");
+      url.href = `https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}`;
+      url.target = "_blank";
+
+      document.body.appendChild(url);
+      url.click();
+
+      document.body.removeChild(url);
+    } else {
+      window.open(
+        `https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=${uriAuthUrl}`,
+        "Instagram Login",
+        `width=${width},height=${height},top=${top},left=${left}`
+      );
+    }
   };
 
   return (
