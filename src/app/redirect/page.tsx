@@ -19,14 +19,12 @@ const Callback = () => {
         );
 
       if (isMobile()) {
-        const url = document.createElement("a");
+        const url = document.getElementsByTagName("a")[0];
         url.href = link;
         url.target = "_blank";
 
-        document.body.appendChild(url);
         url.click();
 
-        document.body.removeChild(url);
         window.close();
       } else {
         window.location.href = `${link}#`;
@@ -34,7 +32,12 @@ const Callback = () => {
     }
   }, [link]);
 
-  return <div>Processing link... </div>;
+  return (
+    <>
+      Processing link...
+      <a href={link} target="_blank"></a>
+    </>
+  );
 };
 
 const page = () => {
