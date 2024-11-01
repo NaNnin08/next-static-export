@@ -32,10 +32,25 @@ const Callback = () => {
     }
   }, [link]);
 
+  useEffect(() => {
+    document.getElementById("triggerButton")?.addEventListener("click", () => {
+      const authLink = document.getElementById("authLink");
+      authLink?.click(); // Klik otomatis pada link setelah aksi pengguna
+    });
+  });
+
   return (
     <>
-      Processing link...
-      <a href={link} target="_blank"></a>
+      <a
+        id="authLink"
+        href="https://instagram.com/accounts/login/?source=webapp&force_classic_login&next=YOUR_URI"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden"
+      >
+        Login dengan Instagram
+      </a>
+      <button id="triggerButton">Login dengan Instagram</button>
     </>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 
 const MainComponent = () => {
   const loginInstagram = () => {
-    const clientId = "853949483610671";
+    const clientId = "";
     const redirectUri = encodeURIComponent(
       `${window.location.origin}/callback/instagram` || ""
     );
