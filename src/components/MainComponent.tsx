@@ -28,6 +28,16 @@ const MainComponent = () => {
 
   return (
     <div>
+      <div className="relative h-3/4 min-h-[480px] w-[980px] max-w-[1440px] lg:min-h-[560px]">
+        <iframe
+          className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
+          src={`https://www.youtube.com/embed/HSeic39Pu5c?autoplay=1&controls=0&loop=1&playlist=HSeic39Pu5c`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+        <div className="absolute top-0 left-0 w-full h-full"></div>
+      </div>
       <button onClick={loginInstagram}>CLICK HERE</button>
     </div>
   );
