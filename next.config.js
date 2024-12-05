@@ -27,7 +27,7 @@ const nextConfig = {
           },
           {
             key: "Cross-Origin-Resource-Policy",
-            value: "cross-origin",
+            value: "same-origin",
           },
         ],
       },
